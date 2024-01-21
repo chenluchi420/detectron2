@@ -23,6 +23,8 @@ logger = logging.getLogger(__name__)
 
 __all__ = ["ColorMode", "VisImage", "Visualizer"]
 
+MetadataCatalog.get("table-tennis_val").thing_classes = [' ', 'person', 'table', 'paddle', 'referee', 'scoreboard']
+MetadataCatalog.get("table-tennis_val").thing_colors =[(46, 139, 87), (255, 215, 0), (0, 154, 205), (238, 0, 0), (139, 115 , 85), (104, 34, 139)]
 
 _SMALL_OBJECT_AREA_THRESH = 1000
 _LARGE_MASK_AREA_THRESH = 120000

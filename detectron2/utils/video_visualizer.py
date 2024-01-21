@@ -108,6 +108,15 @@ class VideoVisualizer:
 
         labels = _create_text_labels(classes, scores, self.metadata.get("thing_classes", None))
 
+        if self._instance_mode == ColorMode.IMAGE and self.metadata.get("thing_colors"):
+            colors = [
+                [x / 255 for x in self.metadata.thing_colors[c]] for c in classes
+            ]
+            alpha = 0.8
+        else:
+            colors = None
+            alpha = 0.5
+
         if self._instance_mode == ColorMode.IMAGE_BW:
             # any() returns uint8 tensor
             frame_visualizer.output.reset_image(
